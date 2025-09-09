@@ -1,7 +1,7 @@
-function helper(s: string, p: string[]) {
-  let j = 0;
+function helper(s: string, p: string[]): boolean {
+  let j: number = 0;
 
-  for (let i = 0; i < s.length; i++) {
+  for (let i: number = 0; i < s.length; i++) {
     if (j >= p.length) {
       return false;
     }
@@ -37,8 +37,8 @@ function helper(s: string, p: string[]) {
 
 function isMatch(s: string, p: string): boolean {
   let states: string[] = [];
-  let curr = "";
-  let try_last = "";
+  let curr: string = "";
+  let try_last: string = "";
   for (let i = p.length - 1; i >= 0; i--) {
     curr = p[i] + curr;
     if (curr !== "*") {
