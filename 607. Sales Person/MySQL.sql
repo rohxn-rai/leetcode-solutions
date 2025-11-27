@@ -1,0 +1,30 @@
+SELECT
+  name
+FROM
+  SALESPERSON
+WHERE
+  SALES_ID NOT IN (
+    SELECT
+      SALES_ID
+    FROM
+      ORDERS
+    WHERE
+      COM_ID = (
+        SELECT
+          COM_ID
+        FROM
+          COMPANY
+        WHERE
+          NAME = "RED"
+      )
+  );
+
+SELECT
+  S.name
+FROM
+  ORDERS O
+  JOIN COMPANY C ON C.COM_ID = O.COM_ID
+  AND C.NAME = "RED"
+  RIGHT JOIN SALESPERSON S ON S.SALES_ID = O.SALES_ID
+WHERE
+  O.SALES_ID IS NULL;
