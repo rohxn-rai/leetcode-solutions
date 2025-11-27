@@ -1,0 +1,9 @@
+SELECT
+  name,
+  population,
+  area
+FROM
+  WORLD
+WHERE
+  AREA > 2999999
+  OR POPULATION > 24999999;
