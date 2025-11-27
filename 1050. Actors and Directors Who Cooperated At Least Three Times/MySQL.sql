@@ -1,0 +1,28 @@
+SELECT
+  ACTOR_ID,
+  DIRECTOR_ID
+FROM
+  ActorDirector
+GROUP BY
+  ACTOR_ID,
+  DIRECTOR_ID
+HAVING
+  COUNT(*) > 2;
+
+SELECT
+  ACTOR_ID,
+  DIRECTOR_ID
+FROM
+  (
+    SELECT
+      ACTOR_ID,
+      DIRECTOR_ID,
+      COUNT(*) AS COOPERATED
+    FROM
+      ActorDirector
+    GROUP BY
+      ACTOR_ID,
+      DIRECTOR_ID
+  ) TABLE1
+WHERE
+  COOPERATED > 2;
